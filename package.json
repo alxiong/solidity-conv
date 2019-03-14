@@ -1,0 +1,37 @@
+{
+  "name": "solidity-conv",
+  "version": "0.0.1",
+  "description": "a type conversion utility library for Solidity",
+  "files": [
+    "build",
+    "contracts"
+  ],
+  "scripts": {
+    "build": "truffle compile",
+    "migrate": "truffle migrate",
+    "test": "truffle test",
+    "lint": "solium -d .",
+    "lint:fix": "yarn lint --fix",
+    "coverage": "solidity-coverage"
+  },
+  "keywords": [
+    "ethereum",
+    "solidity",
+    "utility",
+    "conversion"
+  ],
+  "author": "Alex Xiong - <alex@alexxiong.com>",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "dotenv": "^7.0.0",
+    "eth-gas-reporter": "^0.1.12",
+    "ethers": "^4.0.27",
+    "ethlint": "^1.2.3",
+    "ganache-cli": "^6.4.1",
+    "solc": "^0.5.6",
+    "solidity-coverage": "^0.5.11",
+    "truffle": "^5.0.8",
+    "truffle-deploy-registry": "^0.5.1",
+    "truffle-hdwallet-provider": "^1.0.5"
+  }
+}
