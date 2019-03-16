@@ -1,0 +1,15 @@
+{
+  "package_name": "sol-conv",
+  "version": "0.0.1",
+  "description": "Type Conversion Utility Library",
+  "authors": [
+    "Alex Xiong - <alex@alexxiong.com>"
+  ],
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "utility",
+    "conversion"
+  ],
+  "license": "Apache License 2.0"
+}
