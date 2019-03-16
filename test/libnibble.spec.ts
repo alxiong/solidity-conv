@@ -14,7 +14,7 @@ describe("LibNibble", () => {
   let libnibbleMock: ethers.Contract;
 
   before(async () => {
-    const libnibble = await waffle.deployContract(wallet, LibNibble);
+    libnibble = await waffle.deployContract(wallet, LibNibble);
     waffle.link(LibNibbleMock, "contracts/LibNibble.sol:LibNibble", libnibble.address);
     libnibbleMock = await waffle.deployContract(wallet, LibNibbleMock);
   });
@@ -26,13 +26,13 @@ describe("LibNibble", () => {
 
   it("can distinguish a nibble", async () => {
     let ret = await libnibbleMock.isNibble(byteA);
-    expect(ret).to.be.false;
+    expect(ret).to.equal(false);
     ret = await libnibbleMock.isNibble(byteB);
-    expect(ret).to.be.false;
+    expect(ret).to.equal(false);
     ret = await libnibbleMock.isNibble(byteC);
-    expect(ret).to.be.true;
+    expect(ret).to.equal(true);
     ret = await libnibbleMock.isNibble(byteD);
-    expect(ret).to.be.true;
+    expect(ret).to.equal(true);
   });
 
   it("can convert bytes1 to nibble", async () => {
@@ -42,4 +42,11 @@ describe("LibNibble", () => {
     expect(ret).to.eq(ethers.utils.hexlify(0x02));
   });
 
+  it("can map a nibble to char in ASCII", async () => {
+    let ret = await libnibbleMock.nibbleToChar(ethers.utils.hexlify(0x3));
+    expect(ret).to.equal(ethers.utils.hexlify(0x33));
+    ret = await libnibbleMock.nibbleToChar(ethers.utils.hexlify(0xb));
+    expect(ret).to.equal(ethers.utils.hexlify(0x62));
+    await expect(libnibbleMock.nibbleToChar(ethers.utils.hexlify(0x12))).to.be.reverted;
+  });
 });
