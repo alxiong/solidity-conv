@@ -16,9 +16,20 @@ npm install solidity-conv
 ```
  TODO: publish under EthPM when more ready.
 ## Usage
-in your Solidity contract, import it using:
+1. in your Solidity contract, import it using:
 ```solidity
 import "solidity-conv/contracts/(whichever).sol";
+```
+2. make sure your solc version is update to date, (currently the library uses `^0.5.5`) otherwise compilation errors occur.
+My personal recommendation is specify this in your `truffle-config.json` (or whatever name you give to your truffle config)
+```js
+module.exports = {
+  compilers: {
+    solc: {
+      version: "0.5.5",
+    },
+  }
+}
 ```
 
 ## Examples
@@ -27,14 +38,14 @@ pragma solidity ^0.5.5;
 
 import "solidity-conv/contracts/LibBytesString.sol";
 
-contract myContract {
+contract myContract is LibBytesString {
   function myFunc() public pure returns (string memory) {
     address dai = 0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359;
     // ERROR: Explicit type conversion not allowed (from fixed to dyanmic)
     // string memory greet = string(dai);
     
     // CORRECT: this how you rock:
-    string memory greet = LibBytesString.addressToString(dai);
+    string memory greet = addressToString(dai);
     return greet;
   }
 }
