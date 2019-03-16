@@ -1,5 +1,7 @@
 # Solidity Type Conversion Utils
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/AlexXiong97/solidity-conv.svg)](https://greenkeeper.io/)
+
 **NOTE**: this repo is super early in development and no where near production-ready. Please use under careful discretion.
 
 ## Motivation
