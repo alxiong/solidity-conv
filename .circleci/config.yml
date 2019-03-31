@@ -5,12 +5,33 @@ defaults: &defaults
   docker:
     - image: circleci/node:10
 
+save: &save
+  save_cache:
+    key: code-{{ .Revision }}
+    paths:
+      - .
+      # save git commit and ssh config
+      - .git
+      - ~/.ssh
+
+restore: &restore
+  restore_cache:
+    key: code-{{ .Revision }}
+
 jobs:
-  build:
+  lockfile:
     <<: *defaults
     steps:
       - checkout
+      - run: "sudo yarn global add greenkeeper-lockfile@2"
+      - run: "greenkeeper-lockfile-update"
+      - run: "echo job1 installed greenkeeper-lockfile and ran greenkeeper-lockfile-update"
+      - <<: *save
 
+  build:
+    <<: *defaults
+    steps:
+      - <<: *restore
       - run: cat package.json yarn.lock | shasum > .dependencies_checksum
 
       - restore_cache:
@@ -32,7 +53,8 @@ jobs:
   run-tests:
     <<: *defaults
     steps:
-      - checkout
+      - <<: *restore
+      - run: 'sudo yarn global add greenkeeper-lockfile@2'
 
       - run: cat package.json yarn.lock | shasum > .dependencies_checksum
       - restore_cache:
@@ -44,11 +66,12 @@ jobs:
           at: ~/project
 
       - run: yarn test
+      - run: greenkeeper-lockfile-upload
 
   run-lint:
     <<: *defaults
     steps:
-      - checkout
+      - <<: *restore
 
       - run: cat package.json yarn.lock | shasum > .dependencies_checksum
       - restore_cache:
@@ -65,7 +88,10 @@ jobs:
 workflows:
   run-lib-test:
     jobs:
-      - build
+      - lockfile
+      - build:
+          requires:
+            - lockfile
 
       - run-lint:
           requires:
