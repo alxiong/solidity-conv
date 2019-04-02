@@ -1,5 +1,6 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
+require("ts-node/register");
 require("dotenv").config();
 
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
       network_id: 31415926,
       host: "localhost",
       port: 8545,
-      gas: 0xfffffffffff,
+      gas: 7000000,
       gasPrice: 0x01
     },
     kovan: {
