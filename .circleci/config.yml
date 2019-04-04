@@ -5,45 +5,61 @@ defaults: &defaults
   docker:
     - image: circleci/node:10
 
-save: &save
+save_git: &save_git
   save_cache:
     key: code-{{ .Revision }}
     paths:
-      - .
       # save git commit and ssh config
       - .git
-      - ~/.ssh
 
-restore: &restore
+restore_git: &restore_git
   restore_cache:
     key: code-{{ .Revision }}
+
+save_dep: &save_dep
+  save_cache:
+    key: dep-{{ checksum "yarn.lock" }}
+    paths:
+      # save git commit and ssh config
+      - node_modules
+
+restore_dep: &restore_dep
+  restore_cache:
+    key: dep-{{ checksum "yarn.lock" }}
 
 jobs:
   lockfile:
     <<: *defaults
     steps:
+      - <<: *restore_git
       - checkout
-      - run: "sudo yarn global add greenkeeper-lockfile@2"
-      - run: "greenkeeper-lockfile-update"
-      - run: "echo job1 installed greenkeeper-lockfile and ran greenkeeper-lockfile-update"
-      - <<: *save
+      - run:
+          name: "greenkeeper update yarn.lock"
+          command: |
+            sudo yarn global add greenkeeper-lockfile@2
+            greenkeeper-lockfile-update
+
+      - <<: *save_git
 
   build:
     <<: *defaults
     steps:
-      - <<: *restore
-      - run: cat package.json yarn.lock | shasum > .dependencies_checksum
+      - <<: *restore_git
+      - checkout
 
-      - restore_cache:
-          key: dependency-cache-{{ checksum ".dependencies_checksum" }}
+      - <<: *restore_dep
 
       - run: yarn --frozen-lockfile
       - run: yarn build
 
-      - save_cache:
-          key: dependency-cache-{{ checksum ".dependencies_checksum" }}
-          paths:
-            - node_modules
+      - <<: *save_dep
+      - run:
+          name: "greenkeeper-lockfile-upload"
+          command: |
+            sudo yarn global add greenkeeper-lockfile@2
+            greenkeeper-lockfile-upload
+
+      - <<: *save_git
 
       - persist_to_workspace:
           root: ~/project
@@ -53,12 +69,10 @@ jobs:
   run-tests:
     <<: *defaults
     steps:
-      - <<: *restore
-      - run: 'sudo yarn global add greenkeeper-lockfile@2'
+      - <<: *restore_git
+      - checkout
 
-      - run: cat package.json yarn.lock | shasum > .dependencies_checksum
-      - restore_cache:
-          key: dependency-cache-{{ checksum ".dependencies_checksum" }}
+      - <<: *restore_dep
 
       - run: yarn --frozen-lockfile
 
@@ -66,16 +80,22 @@ jobs:
           at: ~/project
 
       - run: yarn test
-      - run: greenkeeper-lockfile-upload
+
+      - run:
+          name: "greenkeeper-lockfile-upload"
+          command: |
+            sudo yarn global add greenkeeper-lockfile@2
+            greenkeeper-lockfile-upload
+
+      - <<: *save_git
 
   run-lint:
     <<: *defaults
     steps:
-      - <<: *restore
+      - <<: *restore_git
+      - checkout
 
-      - run: cat package.json yarn.lock | shasum > .dependencies_checksum
-      - restore_cache:
-          key: dependency-cache-{{ checksum ".dependencies_checksum" }}
+      - <<: *restore_dep
 
       - run: yarn --frozen-lockfile
 
