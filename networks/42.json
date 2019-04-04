@@ -1,0 +1,17 @@
+[
+  {
+    "contractName": "Migrations",
+    "address": "0x51b4d7C44c33B5125DabDDF97439103ED420148E",
+    "transactionHash": "0xf06a7c8268442df53ed848b5ac7ff7aa2d4990dabddc463faaf048492b5445ed"
+  },
+  {
+    "contractName": "LibNibble",
+    "address": "0x4a09f761df331d45De313A9bC6cBF953eFB72086",
+    "transactionHash": "0x9cede577742235669d813c17180af17b195f958d308a06d23de97a6d0d9b51ea"
+  },
+  {
+    "contractName": "LibBytesString",
+    "address": "0x58fecB19D544017b17BE5e1b43995798512a5d6F",
+    "transactionHash": "0x57e40ff7013bfc08a97abc918d8748233c842025f37e7afc51b83e0a3bce1936"
+  }
+]
