@@ -28,18 +28,18 @@ restore_dep: &restore_dep
     key: dep-{{ checksum "yarn.lock" }}
 
 jobs:
-  lockfile:
-    <<: *defaults
-    steps:
-      - <<: *restore_git
-      - checkout
-      - run:
-          name: "greenkeeper update yarn.lock"
-          command: |
-            sudo yarn global add greenkeeper-lockfile@2
-            greenkeeper-lockfile-update
+  # lockfile:
+  #   <<: *defaults
+  #   steps:
+  #     - <<: *restore_git
+  #     - checkout
+  #     - run:
+  #         name: "greenkeeper update yarn.lock"
+  #         command: |
+  #           sudo yarn global add greenkeeper-lockfile@2
+  #           greenkeeper-lockfile-update
 
-      - <<: *save_git
+  #     - <<: *save_git
 
   build:
     <<: *defaults
@@ -53,11 +53,11 @@ jobs:
       - run: yarn build
 
       - <<: *save_dep
-      - run:
-          name: "greenkeeper-lockfile-upload"
-          command: |
-            sudo yarn global add greenkeeper-lockfile@2
-            greenkeeper-lockfile-upload
+      # - run:
+      #     name: "greenkeeper-lockfile-upload"
+      #     command: |
+      #       sudo yarn global add greenkeeper-lockfile@2
+      #       greenkeeper-lockfile-upload
 
       - <<: *save_git
 
@@ -81,11 +81,11 @@ jobs:
 
       - run: yarn test
 
-      - run:
-          name: "greenkeeper-lockfile-upload"
-          command: |
-            sudo yarn global add greenkeeper-lockfile@2
-            greenkeeper-lockfile-upload
+      # - run:
+      #     name: "greenkeeper-lockfile-upload"
+      #     command: |
+      #       sudo yarn global add greenkeeper-lockfile@2
+      #       greenkeeper-lockfile-upload
 
       - <<: *save_git
 
@@ -108,10 +108,10 @@ jobs:
 workflows:
   run-lib-test:
     jobs:
-      - lockfile
-      - build:
-          requires:
-            - lockfile
+      # - lockfile
+      - build
+          # requires:
+          #   - lockfile
 
       - run-lint:
           requires:
