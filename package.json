@@ -45,7 +45,7 @@
     "truffle-deploy-registry": "^0.5.1",
     "truffle-hdwallet-provider": "^1.0.5",
     "ts-mocha": "^6.0.0",
-    "ts-node": "^8.0.3",
+    "ts-node": "^8.1.0",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3333"
