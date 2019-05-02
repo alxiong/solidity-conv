@@ -32,7 +32,7 @@
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.0",
     "chai": "^4.2.0",
-    "dotenv": "^7.0.0",
+    "dotenv": "^8.0.0",
     "eth-gas-reporter": "^0.1.12",
     "ethereum-waffle": "^2.0.9",
     "ethers": "^4.0.27",
