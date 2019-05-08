@@ -2187,15 +2187,15 @@ ethereum-common@^0.0.18:
   resolved "https://registry.yarnpkg.com/ethereum-common/-/ethereum-common-0.0.18.tgz#2fdc3576f232903358976eb39da783213ff9523f"
   integrity sha1-L9w1dvIykDNYl26znaeDIT/5Uj8=
 
-ethereum-waffle@2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/ethereum-waffle/-/ethereum-waffle-2.0.9.tgz#cda1bd6ceea3eb868cb0e0f00b0a2a51747ad6d7"
-  integrity sha512-oHAb/3IQ539JA/BiGv+BYF2nCJ2dH9QFuBdELOp7JaqplnNtmSeqgnfbWpQ4jDIqiIFKJwI5/VeNbQCVX8ndHQ==
+ethereum-waffle@2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/ethereum-waffle/-/ethereum-waffle-2.0.11.tgz#74c11644c8f97de8496b706374773d849f2dff12"
+  integrity sha512-jh5VnY2HB8niRQoD4GaoW3BLdBcnT3u3EELY+vWEh92NEJpLb+5GNcq3q7ArEndzOQCoVBhiIFuGrf42wUsDhg==
   dependencies:
     "@resolver-engine/imports" "^0.3.2"
     "@resolver-engine/imports-fs" "^0.3.2"
     ethers "^4.0.0"
-    ganache-core "2.4.0"
+    ganache-core "2.5.5"
     solc "^0.5.1"
 
 ethereumjs-abi@0.6.5:
@@ -2317,7 +2317,7 @@ ethereumjs-util@^6.0.0:
     safe-buffer "^5.1.1"
     secp256k1 "^3.0.1"
 
-ethereumjs-vm@^2.1.0, ethereumjs-vm@^2.3.4, ethereumjs-vm@^2.5.1, ethereumjs-vm@^2.6.0:
+ethereumjs-vm@2.6.0, ethereumjs-vm@^2.1.0, ethereumjs-vm@^2.3.4, ethereumjs-vm@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/ethereumjs-vm/-/ethereumjs-vm-2.6.0.tgz#76243ed8de031b408793ac33907fb3407fe400c6"
   integrity sha512-r/XIUik/ynGbxS3y+mvGnbOKnuLo40V5Mj1J25+HEO63aWYREIqvWeRO/hnROlMBE5WoniQmPmhiaN0ctiHaXw==
@@ -2792,10 +2792,10 @@ ganache-cli@6.4.1:
     source-map-support "0.5.9"
     yargs "11.1.0"
 
-ganache-core@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/ganache-core/-/ganache-core-2.4.0.tgz#8593fc98db9b5fb14ce96736d843ca98e70b3344"
-  integrity sha512-T1wn3VOy1J4kxYXiOPMU/u8UDM6sWKNwUfYY8EpNPT0n8aS2P9jeHHPsZ/V/DH8pwQhhxC4JEEnXYBnmAec5Kg==
+ganache-core@2.5.5:
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/ganache-core/-/ganache-core-2.5.5.tgz#84da56de1957b6200a2d02934853fe7af89d260b"
+  integrity sha512-mrvPCtDjFLWmqygCx6LngWfA1hv6DH+iisEVYxRmCujstcMgzqi5UQdcKprxoO2Jx9st1fWVvDLi/tc6WHPGoA==
   dependencies:
     abstract-leveldown "3.0.0"
     async "2.6.1"
@@ -2811,11 +2811,11 @@ ganache-core@2.4.0:
     ethereumjs-block "2.1.0"
     ethereumjs-tx "1.3.7"
     ethereumjs-util "5.2.0"
-    ethereumjs-vm "^2.5.1"
+    ethereumjs-vm "2.6.0"
     heap "0.2.6"
     level-sublevel "6.6.4"
     levelup "3.1.1"
-    lodash "4.17.10"
+    lodash "4.17.11"
     merkle-patricia-tree "2.3.1"
     rlp "2.1.0"
     seedrandom "2.4.4"
@@ -3891,12 +3891,7 @@ lodash.assign@^4.0.3, lodash.assign@^4.0.6:
   resolved "https://registry.yarnpkg.com/lodash.assign/-/lodash.assign-4.2.0.tgz#0d99f3ccd7a6d261d19bdaeb9245005d285808e7"
   integrity sha1-DZnzzNem0mHRm9rrkkUAXShYCOc=
 
-lodash@4.17.10:
-  version "4.17.10"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
-  integrity sha512-UejweD1pDoXu+AD825lWwp4ZGtSwgnpZxb3JDViD7StjQz+Nb/6l093lx4OQ0foGWNRoc19mWy7BzL+UAK2iVg==
-
-lodash@^4.14.2, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4:
+lodash@4.17.11, lodash@^4.14.2, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==

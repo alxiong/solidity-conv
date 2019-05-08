@@ -34,7 +34,7 @@
     "chai": "4.2.0",
     "dotenv": "7.0.0",
     "eth-gas-reporter": "0.2.0",
-    "ethereum-waffle": "2.0.9",
+    "ethereum-waffle": "2.0.11",
     "ethers": "4.0.27",
     "ethlint": "1.2.3",
     "ganache-cli": "6.4.1",
