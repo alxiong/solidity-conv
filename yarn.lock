@@ -5546,18 +5546,6 @@ sol-explore@^1.6.2:
   resolved "https://registry.yarnpkg.com/sol-explore/-/sol-explore-1.6.2.tgz#43ae8c419fd3ac056a05f8a9d1fb1022cd41ecc2"
   integrity sha1-Q66MQZ/TrAVqBfip0fsQIs1B7MI=
 
-solc@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/solc/-/solc-0.5.0.tgz#2deb2ae992acac3afb909f85c38d00f01dcb335e"
-  integrity sha512-mdLHDl9WeYrN+FIKcMc9PlPfnA9DG9ur5QpCDKcv6VC4RINAsTF4EMuXMZMKoQTvZhtLyJIVH/BZ+KU830Z8Xg==
-  dependencies:
-    fs-extra "^0.30.0"
-    keccak "^1.0.2"
-    memorystream "^0.3.1"
-    require-from-string "^2.0.0"
-    semver "^5.5.0"
-    yargs "^11.0.0"
-
 solc@0.5.6, solc@^0.5.1:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/solc/-/solc-0.5.6.tgz#13015328c61c188b96ef2c2889d73ac705195fba"
@@ -6116,15 +6104,14 @@ truffle-hdwallet-provider@1.0.5:
     bindings "^1.3.1"
     websocket "^1.0.28"
 
-truffle@5.0.11:
-  version "5.0.11"
-  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.0.11.tgz#e593674415bf5e4a02eed5b940d736dece5ab447"
-  integrity sha512-LyXKxrvPuWuM31AF0U+d890e3ojYAjt4CeHO1zrjBG+/2ac/Fv31yqZS/cXN8xU09xCVC9uEcJ2Z23j9Q2KhRg==
+truffle@5.0.16:
+  version "5.0.16"
+  resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.0.16.tgz#d5f38c1e40dc4a9da36a0c6dd021d81029374ff8"
+  integrity sha512-SMo/CwO6ce1TR07/n5/LKI7VIoMMu8NEdBHr1DFCBqwerHDrZqULcpPapd3Udv4btCD5wNOwgK/5lD6a3epzTw==
   dependencies:
     app-module-path "^2.2.0"
     mocha "^4.1.0"
     original-require "1.0.1"
-    solc "0.5.0"
 
 ts-mocha@6.0.0:
   version "6.0.0"
