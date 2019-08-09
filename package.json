@@ -27,7 +27,7 @@
   ],
   "author": "Alex Xiong - <alex@alexxiong.com>",
   "devDependencies": {
-    "@types/chai": "4.1.7",
+    "@types/chai": "4.2.0",
     "@types/expect": "1.20.4",
     "@types/mocha": "5.2.6",
     "@types/node": "11.13.0",
